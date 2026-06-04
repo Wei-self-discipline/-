@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="【驾校名称】——专业驾驶培训，高通过率，一对一教学，轻松拿驾照！">
+<title>【驾校名称】- 专业驾驶培训</title>
+<style>
+/* ========== 全局重置与变量 ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #1a56db;
+  --primary-dark: #1e40af;
+  --primary-light: #dbeafe;
+  --gold: #f59e0b;
+  --gold-light: #fef3c7;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --max-width: 480px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* 桌面端居中显示手机宽度 */
+  display: flex;
+  justify-content: center;
+}
+
+/* 整个页面包裹器，模拟手机宽度 */
+.page {
+  width: 100%;
+  max-width: var(--max-width);
+  background: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== 顶部导航栏 ========== */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  height: 52px;
+}
+
+.nav-logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.nav-links { display: flex; gap: 4px; list-style: none; flex-wrap: nowrap; }
+
+.nav-links a {
+  display: block;
+  font-size: 12px;
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 20px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--primary); background: var(--primary-light); }
+
+/* ========== 区块通用样式 ========== */
+.section {
+  padding: 56px 20px 48px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.section-title .subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* ========== Hero 头部 ========== */
+.hero {
+  position: relative;
+  margin-top: 52px;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #1a56db 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 64px 24px 56px;
+  overflow: hidden;
+}
+
+/* 装饰圆圈 */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.hero * { position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.hero .slogan {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--primary);
+  font-size: 17px;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-cta:active { transform: scale(0.96); }
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .num {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.hero-stat .label {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+/* ========== 简介区块 ========== */
+.about-content {
+  text-align: center;
+}
+
+/* 图片占位框 */
+.img-placeholder {
+  background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 14px;
+  gap: 8px;
+  min-height: 120px;
+  overflow: hidden;
+}
+
+.img-placeholder .icon { font-size: 32px; }
+.img-placeholder .label-text { font-size: 13px; }
+
+/* 视频占位框 */
+.video-placeholder {
+  background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 14px;
+  gap: 8px;
+  min-height: 200px;
+  position: relative;
+}
+
+.video-placeholder .play-icon {
+  width: 52px; height: 52px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* 驾校大图 */
+.about-hero-img {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.about-intro {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: left;
+}
+
+.feature-item {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feature-item .fi-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.feature-item .fi-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.feature-item .fi-desc {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ========== 课程区块 ========== */
+.courses-wrapper {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+.courses-wrapper::-webkit-scrollbar { display: none; }
+
+.course-card {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card.recommend {
+  border: 2px solid var(--gold);
+  position: relative;
+}
+
+.course-badge {
+  position: absolute;
+  top: 12px; right: -28px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 30px;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+.course-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 0;
+}
+
+.course-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-body h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.course-body .course-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.course-details {
+  list-style: none;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.course-details li {
+  padding: 3px 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.course-details li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.course-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.course-price .price-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.course-price .price-unit {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.course-btn {
+  display: block;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.course-btn.recommend-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.course-btn:active { opacity: 0.85; }
+
+/* 提示左右滑动 */
+.swipe-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ========== 训练场地区块 ========== */
+.grounds-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ground-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.ground-card .ground-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 0;
+}
+
+/* 多图横排 */
+.ground-imgs-row {
+  display: flex;
+  gap: 8px;
+}
+
+.ground-imgs-row .img-placeholder {
+  flex: 1;
+  height: 120px;
+  min-height: auto;
+  border-radius: 10px;
+}
+
+.ground-info {
+  padding: 16px;
+}
+
+.ground-info h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.ground-info .addr {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.ground-info .transport {
+  font-size: 12px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ========== 通过率/口碑区块 ========== */
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.stat-card {
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-light), #eff6ff);
+  border-radius: var(--radius);
+  padding: 20px 10px;
+}
+
+.stat-card .stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* 评价卡片 */
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.testimonial-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  font-size: 48px;
+  color: #cbd5e1;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 12px;
+  padding-top: 8px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-author .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.testimonial-author .name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.testimonial-author .info {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ========== 联系与报名区块 ========== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.contact-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-card:active { transform: scale(0.96); }
+
+.contact-card .cc-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.contact-card .cc-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.contact-card .cc-value {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* 微信二维码占位 */
+.qr-placeholder {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 16px;
+  background: var(--bg);
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.qr-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+/* 报名表单 */
+.form-wrapper {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+}
+
+.form-wrapper h3 {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.3s;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+.form-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #1a56db, #2563eb);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 14px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.form-submit:active { transform: scale(0.96); opacity: 0.85; }
+
+.form-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 12px;
+}
+
+/* ========== 页脚 ========== */
+.footer {
+  background: #0f172a;
+  color: #94a3b8;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.footer .f-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ========== 回到顶部按钮 ========== */
+.back-top {
+  position: fixed;
+  bottom: 24px;
+  right: calc(50% - var(--max-width)/2 + 16px);
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  z-index: 99;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* 桌面端修正返回顶部位置 */
+@media (min-width: 481px) {
+  .back-top {
+    right: calc(50% - var(--max-width)/2 + 16px);
+  }
+}
+
+/* ========== 淡入动画 ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ==================== 顶部导航 ==================== -->
+  <nav class="nav">
+    <div class="nav-logo">🚗 【驾校名称】</div>
+    <ul class="nav-links">
+      <li><a href="#courses">课程</a></li>
+      <li><a href="#grounds">场地</a></li>
+      <li><a href="#reviews">口碑</a></li>
+      <li><a href="#contact">报名</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== Hero 头部 ==================== -->
+  <header class="hero" id="home">
+    <div class="hero-badge">🏆 正规驾校 · 值得信赖</div>
+    <h1>【驾校名称】</h1>
+    <p class="slogan">专业教练团队 · 一人一车教学<br>高通过率 · 轻松拿驾照</p>
+    <a href="#contact" class="hero-cta">📞 立即咨询报名</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num" data-count="5000">0</div>
+        <div class="label">累计学员</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num" data-count="98">0</div>
+        <div class="label">通过率 %</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num" data-count="15">0</div>
+        <div class="label">年教学经验</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 驾校简介 ==================== -->
+  <section class="section fade-in" id="about">
+    <div class="section-title">
+      <h2>关于我们</h2>
+      <p class="subtitle">正规资质 · 专业教学 · 服务至上</p>
+    </div>
+
+    <div class="about-content">
+      <!-- 图片占位：驾校门头/全景 -->
+      <div class="img-placeholder about-hero-img">
+        <span class="icon">🖼️</span>
+        <span class="label-text">图片位置 — 驾校门头或全景照片</span>
+      </div>
+
+      <p class="about-intro">
+        【驾校名称】是经交通运输管理部门批准成立的正规机动车驾驶员培训机构。
+        拥有标准化的训练场地和全新的教练车辆，实行<strong>一人一车一教练</strong>的教学模式，
+        随到随学，包教包会，让每一位学员都能轻松掌握驾驶技能。
+      </p>
+
+      <div class="about-features">
+        <div class="feature-item">
+          <span class="fi-icon">📋</span>
+          <div>
+            <div class="fi-title">正规资质</div>
+            <div class="fi-desc">交管部门备案，正规培训资质</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="fi-icon">🚘</span>
+          <div>
+            <div class="fi-title">全新教练车</div>
+            <div class="fi-desc">定期保养，安全可靠</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="fi-icon">👨‍🏫</span>
+          <div>
+            <div class="fi-title">资深教练</div>
+            <div class="fi-desc">平均教龄10年+，耐心细致</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="fi-icon">⏰</span>
+          <div>
+            <div class="fi-title">随到随学</div>
+            <div class="fi-desc">自由约车，不耽误工作学习</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 课程与价格 ==================== -->
+  <section class="section fade-in" id="courses">
+    <div class="section-title">
+      <h2>课程与价格</h2>
+      <p class="subtitle">多种班型可选 · 价格透明 · 无隐形消费</p>
+    </div>
+
+    <div class="courses-wrapper">
+      <!-- 课程1 -->
+      <div class="course-card">
+        <div class="img-placeholder course-img">
+          <span class="icon">🖼️</span>
+          <span class="label-text">图片位置 — C1课程相关照片</span>
+        </div>
+        <div class="course-body">
+          <h3>C1 手动挡</h3>
+          <p class="course-subtitle">适用性广 · 性价比高</p>
+          <ul class="course-details">
+            <li>一对一教学，包教包会</li>
+            <li>含所有科目培训费用</li>
+            <li>免费模拟考试练习</li>
+            <li>练车时间灵活预约</li>
+            <li>考试不过免费重学</li>
+          </ul>
+          <div class="course-price">
+            <span class="price-num">¥XXXX</span>
+            <span class="price-unit">/全包价</span>
+          </div>
+          <a href="#contact" class="course-btn">立即报名</a>
+        </div>
+      </div>
+
+      <!-- 课程2（推荐） -->
+      <div class="course-card recommend">
+        <div class="course-badge">🔥 热门</div>
+        <div class="img-placeholder course-img">
+          <span class="icon">🖼️</span>
+          <span class="label-text">图片位置 — C2课程相关照片</span>
+        </div>
+        <div class="course-body">
+          <h3>C2 自动挡</h3>
+          <p class="course-subtitle">操作简单 · 快速拿证</p>
+          <ul class="course-details">
+            <li>自动挡专项教学</li>
+            <li>含所有科目培训费用</li>
+            <li>免费模拟考试练习</li>
+            <li>练车时间灵活预约</li>
+            <li>考试不过免费重学</li>
+          </ul>
+          <div class="course-price">
+            <span class="price-num">¥XXXX</span>
+            <span class="price-unit">/全包价</span>
+          </div>
+          <a href="#contact" class="course-btn recommend-btn">立即报名</a>
+        </div>
+      </div>
+
+      <!-- 课程3 -->
+      <div class="course-card">
+        <div class="img-placeholder course-img">
+          <span class="icon">🖼️</span>
+          <span class="label-text">图片位置 — VIP课程相关照片</span>
+        </div>
+        <div class="course-body">
+          <h3>VIP 速成班</h3>
+          <p class="course-subtitle">优先安排 · 快速拿证</p>
+          <ul class="course-details">
+            <li>全程一对一VIP教学</li>
+            <li>优先安排练车和考试</li>
+            <li>含所有科目培训费用</li>
+            <li>专车接送训练（可选）</li>
+            <li>不限课时，学会为止</li>
+          </ul>
+          <div class="course-price">
+            <span class="price-num">¥XXXX</span>
+            <span class="price-unit">/全包价</span>
+          </div>
+          <a href="#contact" class="course-btn">立即报名</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="swipe-hint">
+      👈 左右滑动查看更多课程 👉
+    </div>
+  </section>
+
+  <!-- ==================== 训练场地 ==================== -->
+  <section class="section fade-in" id="grounds">
+    <div class="section-title">
+      <h2>训练场地</h2>
+      <p class="subtitle">标准化训练场 · 交通便利 · 环境优良</p>
+    </div>
+
+    <div class="grounds-gallery">
+      <!-- 场地1 -->
+      <div class="ground-card">
+        <div class="img-placeholder ground-img">
+          <span class="icon">🖼️</span>
+          <span class="label-text">图片位置 — 主训练场地照片</span>
+        </div>
+        <div class="ground-info">
+          <h3>🏟 主训练场地</h3>
+          <p class="addr">📍 【请填写详细地址】</p>
+          <p class="transport">🚌 公交XX路 / 地铁XX号线 XX站 直达</p>
+        </div>
+      </div>
+
+      <!-- 场地2 -->
+      <div class="ground-card">
+        <div class="ground-info" style="padding-bottom:0">
+          <h3>📸 训练场地实拍</h3>
+          <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">真实训练环境，标准化科目二场地</p>
+        </div>
+        <!-- 多图横排占位 -->
+        <div style="padding:0 16px 16px">
+          <div class="ground-imgs-row">
+            <div class="img-placeholder">
+              <span class="icon">🖼️</span>
+              <span class="label-text">图片位置</span>
+            </div>
+            <div class="img-placeholder">
+              <span class="icon">🖼️</span>
+              <span class="label-text">图片位置</span>
+            </div>
+            <div class="img-placeholder">
+              <span class="icon">🖼️</span>
+              <span class="label-text">图片位置</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 视频占位：驾校宣传视频 -->
+      <div class="video-placeholder" style="min-height:220px; border-radius:var(--radius);">
+        <div class="play-icon">▶</div>
+        <span style="color:#94a3b8;font-size:14px;">视频位置 — 驾校宣传视频</span>
+        <span style="color:#94a3b8;font-size:12px;">可嵌入腾讯视频/微信视频号/抖音等</span>
+      </div>
+
+      <!-- 场地3：驾校车辆 -->
+      <div class="ground-card">
+        <div class="img-placeholder ground-img">
+          <span class="icon">🖼️</span>
+          <span class="label-text">图片位置 — 教练车辆照片</span>
+        </div>
+        <div class="ground-info">
+          <h3>🚘 教练车辆</h3>
+          <p style="font-size:13px;color:var(--text-light);">全新教练车，定期保养维护，安全有保障</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 通过率/口碑 ==================== -->
+  <section class="section fade-in" id="reviews">
+    <div class="section-title">
+      <h2>学员口碑</h2>
+      <p class="subtitle">用数据说话 · 用口碑证明</p>
+    </div>
+
+    <!-- 数据统计 -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" data-count="98">0</div>
+        <div class="stat-label">科目二通过率 %</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="95">0</div>
+        <div class="stat-label">科目三通过率 %</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="99">0</div>
+        <div class="stat-label">学员满意度 %</div>
+      </div>
+    </div>
+
+    <!-- 学员评价 -->
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">
+          教练非常有耐心，讲解细致，零基础学了一个半月就拿到驾照了！练车时间也很灵活，强烈推荐！
+        </p>
+        <div class="testimonial-author">
+          <div class="avatar">👩</div>
+          <div>
+            <div class="name">【学员姓名】</div>
+            <div class="info">C2自动挡 · 45天拿证</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">
+          对比了好几家驾校，这家的性价比最高。报名前担心的隐形收费问题完全没有，很透明很放心。
+        </p>
+        <div class="testimonial-author">
+          <div class="avatar">👨</div>
+          <div>
+            <div class="name">【学员姓名】</div>
+            <div class="info">C1手动挡 · 60天拿证</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">
+          训练场地离家很近，每次约车都能约到。教练很负责，每个细节都会反复教，直到你真正掌握为止。
+        </p>
+        <div class="testimonial-author">
+          <div class="avatar">👩</div>
+          <div>
+            <div class="name">【学员姓名】</div>
+            <div class="info">VIP速成班 · 30天拿证</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 联系与报名 ==================== -->
+  <section class="section fade-in" id="contact">
+    <div class="section-title">
+      <h2>联系与报名</h2>
+      <p class="subtitle">免费咨询 · 随时报名 · 优惠进行中</p>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="contact-grid">
+      <a href="tel:【请填写电话】" class="contact-card">
+        <div class="cc-icon">📞</div>
+        <div class="cc-title">电话咨询</div>
+        <div class="cc-value">【请填写电话】</div>
+      </a>
+      <a href="#" class="contact-card" onclick="alert('请添加微信号：【请填写微信号】');return false;">
+        <div class="cc-icon">💬</div>
+        <div class="cc-title">微信咨询</div>
+        <div class="cc-value">【请填写微信号】</div>
+      </a>
+      <a href="#" class="contact-card" onclick="alert('请搜索关注：【请填写公众号名称】');return false;">
+        <div class="cc-icon">🔔</div>
+        <div class="cc-title">公众号</div>
+        <div class="cc-value">【请填写公众号】</div>
+      </a>
+      <a href="https://maps.google.com" class="contact-card" target="_blank">
+        <div class="cc-icon">📍</div>
+        <div class="cc-title">导航到校</div>
+        <div class="cc-value">点击查看地图</div>
+      </a>
+    </div>
+
+    <!-- 微信二维码 -->
+    <div class="qr-placeholder">
+      <span style="font-size:32px;">📱</span>
+      <span>微信二维码位置</span>
+      <span style="font-size:11px;">请替换为真实二维码图片</span>
+    </div>
+    <p class="qr-hint">📷 长按识别二维码添加微信咨询</p>
+
+    <!-- 报名表单 -->
+    <div class="form-wrapper" style="text-align:center;">
+      <h3>📝 在线报名咨询</h3>
+      <p style="font-size:14px;color:#64748b;margin-bottom:20px;">点击下方按钮，填写报名信息</p>
+      <a href="https://wj.qq.com/s2/26918638/7f06/" target="_blank" class="form-submit" style="display:inline-block;text-decoration:none;width:auto;padding:14px 48px;">
+        填写报名表 📋
+      </a>
+      <p class="form-note">提交后我们将在24小时内与您联系 · 信息严格保密</p>
+    </div>
+  </section>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="footer">
+    <div class="f-name">🚗 【驾校名称】</div>
+    <div>地址：【请填写详细地址】</div>
+    <div>电话：【请填写电话】 ｜ 微信：【请填写微信号】</div>
+    <div style="margin-top:8px;opacity:0.6;">© 2026 【驾校名称】 版权所有</div>
+  </footer>
+
+</div>
+
+<!-- 回到顶部按钮 -->
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script>
+/* ========== 回到顶部按钮 ========== */
+const backTop = document.getElementById('backTop');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 500) {
+    backTop.classList.add('visible');
+  } else {
+    backTop.classList.remove('visible');
+  }
+});
+
+backTop.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ========== 滚动淡入动画 ========== */
+const fadeEls = document.querySelectorAll('.fade-in');
+
+// 确保 Hero 区域始终可见（不在 fade-in 内）
+function checkFadeIn() {
+  fadeEls.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+    if (rect.top < windowHeight - 60) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkFadeIn);
+window.addEventListener('load', checkFadeIn);
+// 初始检查
+checkFadeIn();
+
+/* ========== 数字递增动画 ========== */
+function animateNumbers() {
+  document.querySelectorAll('[data-count]').forEach(function(el) {
+    if (el.classList.contains('counted')) return;
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 30) {
+      el.classList.add('counted');
+      var target = parseInt(el.getAttribute('data-count'));
+      var current = 0;
+      var duration = 1500;
+      var step = Math.ceil(target / (duration / 20));
+      var timer = setInterval(function() {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = current;
+      }, 20);
+    }
+  });
+}
+
+window.addEventListener('scroll', animateNumbers);
+window.addEventListener('load', animateNumbers);
+
+</script>
+
+</body>
+</html>
